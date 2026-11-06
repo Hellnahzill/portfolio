@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfolio of Kutbol Suranbekov, a programmer from Bishkek studying at Ala-Too International College (SCA25B).">
+<title>Kutbol Suranbekov — Programmer</title>
+<link rel="preload" href="fonts/MedeoSansVariable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="wrap header__in">
+    <a href="#top" class="logo">Kutbol Suranbekov</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="nav" id="nav" aria-label="Main menu">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch theme">🌙</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap hero__in">
+      <div>
+        <h1><span class="hello">Hello, I’m Kutbol,</span><span class="role">Programmer</span><span class="where">based in Bishkek.</span></h1>
+        <a class="btn" href="#about">Resume</a>
+      </div>
+      <div class="hero__photo">
+        <svg class="plus" viewBox="0 0 60 60" aria-hidden="true"><path d="M38 6v22M27 17h22M12 26v22M1 37h22M32 36v22M21 47h22" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg>
+        <img src="images/photo.jpg" alt="Photo of Kutbol Suranbekov" width="600" height="600">
+        <svg class="slashes" viewBox="0 0 110 30" aria-hidden="true"><path d="M6 28l8-26M30 28l8-26M54 28l8-26M78 28l8-26M102 28l8-26" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <h2>about.</h2>
+      <p class="text">I’m a software engineer studying at Ala-Too International College, 2nd year, group SCA25B.</p>
+      <ol class="timeline">
+        <li><b>2014</b><p>Made my first footsteps by starting to use computer</p></li>
+        <li><b>2021</b><p>Fully started to try coding and made my first projects</p></li>
+        <li><b>2025 - Present</b><p>Commited myself to major software engineering at prestige college</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <h2>work.</h2>
+      <p class="text">My projects:</p>
+      <div class="filters" role="group" aria-label="Project filter">
+        <button class="chip is-active" data-filter="all" type="button">All</button>
+        <button class="chip" data-filter="prog" type="button">Programs</button>
+        <button class="chip" data-filter="web" type="button">Websites</button>
+      </div>
+      <div class="grid">
+        <article class="card" data-cat="prog"><img src="images/project1.svg" alt="Cover of the Password generator project" loading="lazy"><em>2026 May 14</em><h3>Password generator</h3><p>made by me via Python</p></article>
+        <article class="card" data-cat="prog"><img src="images/project2.svg" alt="Cover of the Flappy Bird style game" loading="lazy"><em>Game</em><h3>Flappy Bird style game</h3><p>A simple game made by me</p></article>
+        <article class="card" data-cat="web"><img src="images/project3.svg" alt="Cover of the Portfolio project" loading="lazy"><em>HTML · CSS · JavaScript</em><h3>Portfolio</h3><p>This website</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="wrap">
+      <h2>skills.</h2>
+      <ul class="skills"><li>Python</li><li>Java</li><li>HTML</li><li>JavaScript</li><li>CSS</li></ul>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap">
+      <h2>contact.</h2>
+      <div class="contact">
+        <img src="images/contact.svg" alt="Letters and a pen" width="440" height="314" loading="lazy">
+        <div>
+          <p class="text">Have an idea or a question? Write me a message and I will answer as soon as I can.</p>
+          <p class="mail"><a href="mailto:hello@example.com">hello@example.com</a></p>
+          <form id="form" novalidate>
+            <label for="name">Name</label>
+            <input id="name" type="text" autocomplete="name"><small class="err" id="nameErr"></small>
+            <label for="email">Email</label>
+            <input id="email" type="email" autocomplete="email"><small class="err" id="emailErr"></small>
+            <label for="msg">Message</label>
+            <textarea id="msg" rows="4"></textarea><small class="err" id="msgErr"></small>
+            <button class="btn" type="submit">Send</button>
+            <p class="ok" id="ok" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="wrap"><p>© 2026 Kutbol Suranbekov · Ala-Too International College, SCA25B</p></div></footer>
+<a class="up" id="up" href="#top" aria-label="Back to top" hidden>↑</a>
+<script src="js/script.js"></script>
+</body>
+</html>

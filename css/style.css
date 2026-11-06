@@ -1,0 +1,519 @@
+/* ==========================================================
+   1. ШРИФТЫ
+   ========================================================== */
+
+@font-face {
+  font-family: "Medeo Sans";
+  src: url(../fonts/MedeoSansVariable.woff2) format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Medeo Mono";
+  src: url(../fonts/MedeoMonoVariable.woff2) format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+
+/* ==========================================================
+   2. ПЕРЕМЕННЫЕ (цвета светлой и тёмной темы)
+   ========================================================== */
+
+:root {
+  --bg: #FBF7CD;
+  --ink: #05055A;
+  --ghost: #F5F08A;
+  --btn: #F5EE80;
+  --btn-ink: #05055A;
+  --deco: #3F3F00;
+  --line: #D9D49A;
+  --err: #C42727;
+  --ok: #1E7A45;
+}
+
+[data-theme="dark"] {
+  --bg: #0A0A3A;
+  --ink: #FBF7CD;
+  --ghost: #2A2A78;
+  --deco: #F5F08A;
+  --line: #2A2A78;
+  --err: #FF8A8A;
+  --ok: #8FE3A8;
+}
+
+
+/* ==========================================================
+   3. БАЗОВЫЕ СТИЛИ
+   ========================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 18px/1.6 "Medeo Sans", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 6.7vw, 96px);
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.text {
+  max-width: 62ch;
+}
+
+h2 {
+  margin-bottom: 32px;
+  color: var(--ghost);
+  font-size: clamp(64px, 10vw, 128px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+
+/* ==========================================================
+   4. КНОПКИ
+   ========================================================== */
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--btn);
+  color: var(--btn-ink);
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  box-shadow: 6px 6px 0 var(--btn);
+  font: 500 20px "Medeo Sans", sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+}
+
+[data-theme="dark"] .btn {
+  border-color: var(--btn);
+}
+
+.theme-btn,
+.burger {
+  width: 44px;
+  height: 44px;
+  background: none;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.burger {
+  display: none;
+}
+
+.up {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--btn);
+  color: var(--btn-ink);
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.up[hidden] {
+  display: none;
+}
+
+
+/* ==========================================================
+   5. ШАПКА И МЕНЮ
+   ========================================================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+}
+
+.header__in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 4vw, 56px);
+}
+
+.nav a {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+
+/* ==========================================================
+   6. ГЛАВНЫЙ ЭКРАН
+   ========================================================== */
+
+.hero {
+  padding: clamp(40px, 8vw, 110px) 0 80px;
+}
+
+.hero__in {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+h1 {
+  font-weight: inherit;
+}
+
+h1 span {
+  display: block;
+}
+
+.hello,
+.where {
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 500;
+}
+
+.role {
+  margin: 8px 0 16px;
+  font-size: clamp(40px, 6.2vw, 92px);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.where {
+  margin-bottom: 40px;
+}
+
+.hero__photo {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 440px;
+  color: var(--deco);
+}
+
+.hero__photo img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.plus {
+  position: absolute;
+  top: -70px;
+  right: -40px;
+  width: 56px;
+}
+
+.slashes {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  width: 90px;
+}
+
+
+/* ==========================================================
+   7. ОБО МНЕ (таймлайн)
+   ========================================================== */
+
+.timeline {
+  display: grid;
+  gap: 56px;
+  margin: 72px 0 0 clamp(0px, 20vw, 260px);
+  padding: 0;
+  list-style: none;
+}
+
+.timeline li {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  background: var(--ink);
+  border-radius: 50%;
+}
+
+.timeline b {
+  font-size: 22px;
+}
+
+.timeline p {
+  margin-top: 12px;
+}
+
+
+/* ==========================================================
+   8. ПРОЕКТЫ (фильтр и карточки)
+   ========================================================== */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 40px;
+}
+
+.chip {
+  padding: 10px 22px;
+  background: none;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font: 500 16px "Medeo Sans", sans-serif;
+  cursor: pointer;
+}
+
+.chip.is-active {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 48px 56px;
+}
+
+.card[hidden] {
+  display: none;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 7 / 5;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+.card em {
+  font-size: 16px;
+}
+
+.card h3 {
+  margin: 16px 0 8px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+
+/* ==========================================================
+   9. НАВЫКИ
+   ========================================================== */
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 40px;
+  padding: 0;
+  list-style: none;
+}
+
+.skills li {
+  padding: 12px 28px;
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+
+/* ==========================================================
+   10. КОНТАКТЫ И ФОРМА
+   ========================================================== */
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 56px;
+  align-items: start;
+  margin-top: 40px;
+}
+
+.contact img {
+  width: 100%;
+}
+
+.mail {
+  margin: 24px 0;
+  font-size: 22px;
+}
+
+label {
+  display: block;
+  margin-top: 16px;
+  font-weight: 500;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 14px;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  font: inherit;
+}
+
+input.invalid,
+textarea.invalid {
+  border: 2px solid var(--err);
+}
+
+.err {
+  display: block;
+  min-height: 22px;
+  color: var(--err);
+  font-size: 15px;
+}
+
+form .btn {
+  margin-top: 16px;
+}
+
+.ok {
+  margin-top: 16px;
+  color: var(--ok);
+  font-weight: 700;
+}
+
+
+/* ==========================================================
+   11. ПОДВАЛ
+   ========================================================== */
+
+.footer {
+  padding: 32px 0;
+  font-size: 15px;
+}
+
+
+/* ==========================================================
+   12. АДАПТИВ (телефон, до 768px)
+   ========================================================== */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 0;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px 24px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .hero__in,
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__photo {
+    order: -1;
+    justify-self: start;
+    max-width: 320px;
+    margin-top: 24px;
+  }
+
+  .plus {
+    top: -50px;
+    right: -10px;
+    width: 44px;
+  }
+
+  .timeline {
+    margin-left: 0;
+  }
+}
